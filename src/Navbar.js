@@ -1,11 +1,6 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom'
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import './styling/Navbar.css';
+import { Link} from 'react-router-dom'
+import { AppBar, Tab, Tabs, Toolbar, Typography, Button } from '@mui/material/';
 
 
 function Navbar() {
@@ -15,57 +10,27 @@ function Navbar() {
     <AppBar 
       className='nav' 
       position='static' 
-      color='default'
       sx={{
-        boxShadow: 0
+        backgroundColor: 'white',
+        boxShadow: 0,
+        px: 5
       }}
       >
-      <Toolbar>
-        <Box>
-          <Link to='/' className='site-title'>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-            }}
-            >
-              TWO CAR STUDIO
-            </Typography>
-          </Link>
-        </Box>
-        <Box display='flex' >
-          <ul>
-            <CustomLink to='/About'>About</CustomLink>
-            <CustomLink to='/Contacts'>Contacts</CustomLink>
-          </ul>
-          <Button component={Link} to="/BookNow" variant="contained" color="primary">
-            Book Now
-          </Button>
-        </Box>
+      <Toolbar >
+        <Typography variant='h6' sx={{fontWeight:700}}>
+          <Link to='/' className='site-title' style={{textDecoration: 'none', color: 'black'}}> TWO CAR STUDIO </Link>
+        </Typography>
+        <Tabs sx={{ marginLeft: 'auto'}}>
+          <Tab component={Link} to='/About' label='About' sx={{color: 'black'}}/>
+          <Tab component={Link} to='/Contacts' label='Contacts' sx={{color: 'black'}}/>
+        </Tabs>
+        <Button component={Link} to='/BookNow' variant='contained' sx={{marginLeft: 'auto', fontWeight: 600, background:'black', ml:2}}> Book Now </Button>
       </Toolbar>
     </AppBar>
            
   );
 }
 
-function CustomLink({to, children, ...props}) {
-  const path = window.location.pathname
-  return (
-    <li className={path === to ? 'active' : ''}>
-      <Link to={to} {...props}> 
-        {children}
-      </Link>
-    </li>
-  )
-}
+
 
 export default Navbar;
