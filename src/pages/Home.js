@@ -7,7 +7,9 @@ import Title from './homeComponents/Title';
 function Home() {
 
     return (
-        <Title/>
+        <Box sx={{flex:1}}>  
+            <Title/>
+        </Box>
     )
 }
 

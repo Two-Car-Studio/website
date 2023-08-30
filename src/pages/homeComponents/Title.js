@@ -8,17 +8,14 @@ function Title() {
     const returningLink = <Link to='/LogIn'>here</Link>;
 
     return (
-        <Box className='main container'>
-            <Box className='primary container'>
-                <Box className='primary text'>
-                    <Typography>
+        <Box className='main container' >
+            <Box className='primary container' sx={{display:'flex', justifyContent:'space-evenly' }}>
+                <Box className='primary text' sx={{maxWidth:true, mt:25}}>
+                    <Typography variant='h4' sx={{wordSpacing:10, lineHeight: 1.2, fontWeight:700}}>
                         two car studio
                     </Typography>
                     <Typography>
                         your dance home
-                    </Typography>
-                    <Typography>
-
                     </Typography>
                     <Button 
                         component={Link} 
@@ -33,11 +30,13 @@ function Title() {
                     </Typography>
                 </Box>
                 <Box className='primary pictures'>
-
+                    <img src='images/dancingFromBehind.jpg' alt='placeholder' style={{height:500}} />
                 </Box>
             </Box>
             <Box className='secondary container'>
+                <Button>
 
+                </Button>
             </Box>
         </Box>
     )

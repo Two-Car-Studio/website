@@ -12,8 +12,8 @@ function App() {
 
   return (
     <>
-      <Navbar/>
-        <div>
+      <div className='AppContainer'>
+        <Navbar/>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/About' element={<About />} />
@@ -21,8 +21,8 @@ function App() {
             <Route path='/BookNow' element={<BookNow />} />
             <Route path='/LogIn' element={<LogIn />} />
           </Routes>
-        </div>
-      <Footer/>
+          <Footer/>
+      </div>
     </>
   );
 }
