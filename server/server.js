@@ -2,16 +2,16 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-var cors = require('cors');
-
-
-app.use(cors());
-app.use(express.static(path.join(__dirname, 'public')));
+const users = [{ name: 'John' }]
 
 app.get('/', (req, res) => {
-    res.send({
+    res.json({
         "name": "yuki"
     })
+})
+
+app.get('/users', (req, res) => {
+    res.json({'users': users})
 })
 
 

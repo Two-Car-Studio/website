@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 function Footer() {
     return (
@@ -11,6 +11,7 @@ function Footer() {
         bottom: 0,
         height:150,
         background: '#262626',
+        display:'flex'
         }} component='footer' square variant='outlined'>
             <Box sx={{
             flexDirection: 'column',
@@ -31,16 +32,16 @@ function Footer() {
             }}
             >
                 <Typography variant='caption' sx={{m:5, color:'white'}}>
-                    Instagram
+                    <InstagramIcon/>
                 </Typography>
                 <Typography variant='caption'sx={{m:5, color:'white'}}>
-                    Terms & Conditions
+                    Help
                 </Typography>
                 <Typography variant='caption'sx={{m:5, color:'white'}}>
                     Cookie Policy
                 </Typography>
-                <Typography variant='caption'sx={{m:5, color:'white'}}>
-                    Contact
+                <Typography variant='caption' component={Link} to='/Terms&Conditions' sx={{m:5, color:'white'}}>
+                    Terms & Conditions
                 </Typography>
             </Box>
         </Paper>

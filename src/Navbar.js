@@ -13,7 +13,8 @@ function Navbar() {
       sx={{
         backgroundColor: 'white',
         boxShadow: 0,
-        px: 5
+        maxWidth: true,
+        maxHeight: 64
       }}
       >
       <Toolbar >

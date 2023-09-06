@@ -6,6 +6,7 @@ import About from './pages/About.js';
 import Contacts from './pages/Contacts.js';
 import BookNow from './pages/BookNow.js';
 import LogIn from './pages/LogIn.js';
+import TermsAndConditions from './pages/TermsAndConditions.js';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path='/Contacts' element={<Contacts />} />
             <Route path='/BookNow' element={<BookNow />} />
             <Route path='/LogIn' element={<LogIn />} />
+            <Route path='/TermsAndConditions' element={<TermsAndConditions/>} />
           </Routes>
           <Footer/>
       </div>
