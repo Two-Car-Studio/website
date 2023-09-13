@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { Link} from 'react-router-dom'
 import { AppBar, Tab, Tabs, Toolbar, Typography, Button } from '@mui/material/';
-
+import ProfileDropdown from './pages/NavbarComponents/ProfileDropdown';
 
 function Navbar() {
 
   return (
+
+
       
     <AppBar 
       className='nav' 
@@ -26,6 +28,9 @@ function Navbar() {
           <Tab component={Link} to='/Contacts' label='Contacts' sx={{color: 'black'}}/>
         </Tabs>
         <Button component={Link} to='/BookNow' variant='contained' sx={{marginLeft: 'auto', fontWeight: 600, background:'black', ml:2}}> Book Now </Button>
+        {/* {
+          auth ? <ProfileDropdown/> : <></>
+        } */}
       </Toolbar>
     </AppBar>
            

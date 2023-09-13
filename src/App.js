@@ -6,8 +6,11 @@ import About from './pages/About.js';
 import Contacts from './pages/Contacts.js';
 import BookNow from './pages/BookNow.js';
 import LogIn from './pages/LogIn.js';
-import TermsAndConditions from './pages/TermsAndConditions.js';
+import TermsAndConditions from './pages/FooterPages/TermsAndConditions.js';
+import PasswordReset from './pages/PasswordResetPages/PasswordReset';
+import ForgotEmail from './pages/ForgotEmailPages/ForgotEmail';
 import { Route, Routes } from 'react-router-dom';
+
 
 function App() {
 
@@ -22,6 +25,8 @@ function App() {
             <Route path='/BookNow' element={<BookNow />} />
             <Route path='/LogIn' element={<LogIn />} />
             <Route path='/TermsAndConditions' element={<TermsAndConditions/>} />
+            <Route path='/PasswordReset' element={<PasswordReset/>} />
+            <Route path='/ForgotEmail' element={<ForgotEmail/>} />
           </Routes>
           <Footer/>
       </div>

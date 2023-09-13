@@ -1,8 +1,17 @@
 import { Box, Typography, TextField, Button } from '@mui/material'
 import {react, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
 
 function HandleLogin () {
+
+    const responseMessage = (response) => {
+        console.log(response);
+    };
+
+    const errorMessage = (error) => {
+        console.log(error);
+    };
 
     const [email, setEmail] =useState('');
     const [password, setPassword] = useState('');
@@ -11,10 +20,21 @@ function HandleLogin () {
         e.preventDefault();
         console.log(email);
         console.log(password);
-        
+
+        fetch('http://localhost:4000/Login',{
+            method: "POST",
+            body: {
+                email,
+                password
+            }
+        })
+        .then(res => res.json())
+        .then(data => responseMessage(data))
+        .catch(err => errorMessage(err))
     }
     
     return (
+
         <Box 
             component='form' 
             onSubmit={handleSubmit}
@@ -32,7 +52,7 @@ function HandleLogin () {
                         id='loginEmail'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}/>
-                    <Typography component={Link}  sx={{ display:'flex', justifyContent:'flex-end'}}>Forgot Email?</Typography>
+                    <Typography component={Link} to='/ForgotEmail' sx={{ display:'flex', justifyContent:'flex-end'}}>Forgot Email?</Typography>
                 </Box>
                 <Box sx={{display:'flex', flexDirection:'column'}}>
                     <Typography> Password *</Typography>
@@ -42,11 +62,11 @@ function HandleLogin () {
                         type='password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}/>
-                    <Typography component={Link} sx={{ display:'flex', justifyContent:'flex-end'}}>Forgot Password?</Typography>
+                    <Typography component={Link} to='/PasswordReset' sx={{ display:'flex', justifyContent:'flex-end'}}>Forgot Password?</Typography>
                 </Box>
             </Box>
-                <Button type='submit' variant='contained' sx={{display:'flex', justifyContent:'center', width:400}}>Continue</Button>
-            </Box>
+            <Button type='submit' variant='contained' sx={{display:'flex', justifyContent:'center', width:400}}>Continue</Button>
+        </Box>
     )
 }
 

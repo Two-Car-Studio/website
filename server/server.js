@@ -2,16 +2,36 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-const users = [{ name: 'John' }]
+app.use(express.json());
+
+const users = [];
 
 app.get('/', (req, res) => {
-    res.json({
-        "name": "yuki"
-    })
+    res.json(users)
 })
 
-app.get('/users', (req, res) => {
-    res.json({'users': users})
+app.post('/Register', (req, res) => {
+    const user = { email: req.body.email, password: req.body.password }
+    const exist = users.find(user => user.email === req.body.email)
+    if (exist){
+        return res.status(400).send('Email already exists. Please log in.')
+    }
+    users.push({
+        id: Date.now().toString(),
+        email: user.email,
+        password: user.password
+    })
+    res.status(201).redirect(to='/Home')
+})
+
+app.post('/Login', (req, res) => {
+    const user = { email: req.body.email, password: req.body.password }
+    const exist = users.find(user => user.email === req.body.email)
+    if (exist){
+        return res.status(400).send('Email already exists. Please log in.')
+    }
+    users.push(user)
+    res.status(201).send()
 })
 
 

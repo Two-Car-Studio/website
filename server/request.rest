@@ -1,1 +1,21 @@
-GET http://localhost:4000/users
+GET http://localhost:4000/
+
+###
+
+POST http://localhost:4000/BookNow
+Content-Type: application/json
+
+{
+    "name": "Kyle",
+    "password": "password"
+}
+
+###
+
+POST http://localhost:4000/Register
+Content-Type: application/json
+
+{
+    "email": "example@example.com",
+    "password": "password"
+}
